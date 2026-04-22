@@ -1,8 +1,5 @@
 # AI for Working with Data — 1-Pager
 
-**Audience:** Payment Ops, Fraud Support, Chargeback Ops  
-**Presenter:** Varun Srivastava
-
 ## Goal
 By the end of this session, you should be able to:
 

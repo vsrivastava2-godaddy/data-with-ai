@@ -11,13 +11,96 @@ By the end of this session, you should be able to:
 
 ---
 
-## Before the Call
+# AI User Maturity Levels — Operations & Data Teams
+
+## Level 1 — Beginner (The Asker)
+
+Users ask AI one-off questions and get quick answers. No data or tools are connected.
+
+| Task | Example |
+|---|---|
+| Terminology lookup | "What does response_code -18 mean in CPL?" |
+| Query syntax help | "How do I write a DATEADD for the last 3 hours in SQL Server?" |
+| Log interpretation | "What does this stack trace mean?" |
+| Status page summaries | "Summarize this incident report for me" |
+| Email/Slack drafting | "Write a message to the team about tonight's maintenance window" |
+| Basic data formatting | "Convert this JSON payload into a readable table" |
+
+**Productivity gain:** ~10–15% — saves time on lookups and routine writing
+
+---
+
+## Level 2 — Intermediate (The Analyst)
+
+Users provide context (schemas, data samples, business rules) and iterate with AI to build queries, analyze data, and troubleshoot.
+
+| Task | Example |
+|---|---|
+| SQL query generation | "Write a query to find all failed transactions for shopper 12345 in the last 48 hours" |
+| Data analysis | "Here's a CSV export of error codes by hour — what's the trend?" |
+| Incident triage | "Here's the error spike data and the deploy timeline — correlate them" |
+| Report building | "Summarize this week's gateway failure rates by processor into a table for the ops review" |
+| Runbook assistance | "Walk me through the steps to failover gateway 7 based on our runbook" |
+| Regex / parsing | "Write a regex to extract transaction IDs from this gateway_raw field" |
+
+**Productivity gain:** ~25–40% — faster query writing, data interpretation, and incident response
+
+---
+
+## Level 3 — Advanced (The Operator)
+
+Users connect AI to live tools (databases, Jira, dashboards, APIs) and use it to drive multi-step operational workflows end-to-end.
+
+| Task | Example |
+|---|---|
+| Schema-aware querying | `/cpl-query error code spikes in the last 24 hours` — AI knows the table schema, indexes, and generates optimized SQL |
+| Incident investigation | "Query CPL for -18 errors, check which gateways are affected, pull the related Jira tickets" |
+| Change order generation | AI fetches Jira ticket + PR details and writes the CO description automatically |
+| Cross-system correlation | "Compare error rates in CPL with the deploy log in Jenkins — did the last release cause this?" |
+| Automated reporting | "Every Monday, pull last week's error rates by source and gateway, format as a summary" |
+| Alert enrichment | "This PagerDuty alert fired for gateway 5 — pull the last 15 min of CPL data and tell me if it's real" |
+
+**Productivity gain:** ~50–70% — AI handles the data gathering and correlation; humans make the decisions
+
+---
+
+## Level 4 — Power User (The Automator)
+
+Users build reusable AI-powered workflows, schedule autonomous monitoring, and extend AI capabilities into team-wide operational tooling.
+
+| Task | Example |
+|---|---|
+| Custom skills for the team | Build a `/cpl-query` skill so anyone can query CPL without knowing the schema |
+| Scheduled monitoring agents | "Every 30 minutes, check gateway failure rates and post to #payments-alerts if > 5%" |
+| Automated incident response | AI detects anomaly in CPL, creates a Jira ticket, tags the on-call, and drafts an initial RCA |
+| Self-service data tools | Build a Slack bot that lets non-technical ops staff query transaction status by order ID |
+| Dashboard-to-action pipelines | AI reads Grafana metrics, correlates with CPL data, and recommends whether to page or wait |
+| Knowledge capture | AI learns from resolved incidents and suggests similar fixes for new alerts |
+| Onboarding acceleration | New team members use AI skills to query systems safely without memorizing schemas or runbooks |
+
+**Productivity gain:** ~2–5x multiplier — operational toil becomes automated; team scales without headcount
+
+---
+
+## The Key Inflection Points
+
+```
+Level 1 → 2:  Giving AI your data and context, not just asking generic questions
+Level 2 → 3:  Connecting AI to live systems (databases, Jira, monitoring) instead of copy-pasting
+Level 3 → 4:  Building reusable, schedulable workflows that the whole team benefits from
+```
+
+> **The biggest ROI jump for ops teams is Level 2 → 3.** That's when AI stops being
+> "help me write this query" and becomes "investigate this incident for me."
+> The human still decides — but AI does the data gathering in seconds, not minutes.
+
+
+## Setup
 
 Please make sure you:
 
 - Are connected to **VPN**
 - Have access to **Claude**
-- Have access to the relevant **GitHub repo** for schemas/documentation
 - Have access to your data tools as needed:
   - **MSSQL**
   - **Athena**

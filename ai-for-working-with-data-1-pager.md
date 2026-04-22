@@ -28,6 +28,42 @@ Use this guide to set up Claude on your PC:
 
 ---
 
+## Connecting Integrations
+
+### Atlassian Integration — Confluence + Jira (MCP)
+
+Connects Claude directly to Confluence and Jira.
+
+```bash
+claude mcp add Atlassian --transport http https://mcp.atlassian.com/v1/mcp
+```
+
+Authenticate when prompted (uses your GoDaddy Atlassian account).
+
+**What you can do:**
+- Search and read Confluence pages
+- Read acceptance criteria and requirements from Jira
+- Auto-generate change order descriptions from tickets
+- Add comments on Jira issues
+
+---
+
+### GitHub Integration (MCP)
+
+```bash
+claude mcp add github
+```
+
+You'll be prompted for a GitHub Personal Access Token.
+
+**To create token:**
+1. Go to https://github.com/settings/tokens
+2. Generate new token (classic)
+3. Scopes needed: `repo`, `read:org`, `read:user`
+4. Copy token and paste when prompted
+
+---
+
 ## What We’ll Cover
 
 1. Accessing Claude

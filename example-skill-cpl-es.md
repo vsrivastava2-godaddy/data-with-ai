@@ -1,3 +1,10 @@
+# Prompts I used to create this skill
+
+I have some data on Elastic search, what are the steps to integrate that data so you can help me analyze some data?  
+https://ecommplatform-prod-usw2.kb.us-west-2.aws.found.io:9243, index is cpl-legacy-prod-*, my API key is <>
+
+
+
 ---
 name: cpl-es
 description: Query CPL (Common Purchase Log) data from Elasticsearch. Accepts an order_id for lookup, or runs anomaly detection on recent transactions.

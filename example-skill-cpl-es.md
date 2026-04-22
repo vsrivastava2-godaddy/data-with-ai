@@ -3,7 +3,9 @@
 I have some data on Elastic search, what are the steps to integrate that data so you can help me analyze some data?  
 https://ecommplatform-prod-usw2.kb.us-west-2.aws.found.io:9243, index is cpl-legacy-prod-*, my API key is <>
 
-
+# Next steps
+- I can ask it to understand what reason/response codes mean
+- I can ask it to get payment_uri from gateway_raw, cURL payments-service to get the full data, understand processor request/response, etc.
 
 ---
 name: cpl-es

@@ -8,6 +8,7 @@ By the end of this session, you should be able to:
 - Use AI to write, explain, and modify SQL
 - Work more effectively with **MSSQL** and **Athena**
 - Use AI for faster data discovery, analysis, and troubleshooting
+- A bonus example in the end
 
 ---
 

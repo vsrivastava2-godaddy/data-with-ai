@@ -110,6 +110,77 @@ Please make sure you:
 Use this guide to set up Claude on your PC:  
 [Claude setup link](https://tdl.gdcorp.tools/docs/products/ai/agentic-coding/claude/how-to-set-up-claude-code/)
 
+### Claude Setup — Windows Quick Start
+
+> Full setup guide: [How to Set Up Claude Code (TDL)](https://tdl.gdcorp.tools/docs/products/ai/agentic-coding/claude/how-to-set-up-claude-code/)
+
+#### Step 1: Install Claude Code
+
+Pick **one** of these options in your terminal:
+
+| Method | Command |
+|--------|---------|
+| **PowerShell (Recommended)** | `irm https://claude.ai/install.ps1 \| iex` |
+| **Command Prompt** | `curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd` |
+| **WinGet** | `winget install Anthropic.ClaudeCode` |
+
+> Native install (PowerShell/CMD) auto-updates. WinGet requires manual updates via `winget upgrade Anthropic.ClaudeCode`.
+
+#### Step 2: Get a GoCode API Key
+
+1. Connect to **VPN** and log in to **Okta**.
+2. Go to [GoCaaS GoCode — Generate Your Developer API Keys](https://godaddy-corp.atlassian.net/wiki/spaces/BI/pages/3843663280/GoCaaS+powered+GoCode+Alpha+-+Generate+Your+Developer+API+Keys#1.-Creating-a-New-API-Key).
+3. Create a new API key.
+4. Copy and save your secret key — you won't be able to see it again.
+
+#### Step 3: Configure Claude Code
+
+1. Open File Explorer and navigate to `%USERPROFILE%\.claude\`.  
+   - If the `.claude` folder doesn't exist, create it:
+     ```powershell
+     mkdir "$env:USERPROFILE\.claude"
+     ```
+2. Create (or edit) `settings.json` in that folder with this content:
+
+```json
+{
+  "env": {
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5",
+    "ANTHROPIC_BASE_URL": "https://caas-gocode-prod.caas-prod.prod.onkatana.net",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6",
+    "ANTHROPIC_AUTH_TOKEN": "<YOUR_GOCODE_TOKEN>",
+    "ANTHROPIC_MODEL": "claude-sonnet-4-6",
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"
+  }
+}
+```
+
+3. Replace `<YOUR_GOCODE_TOKEN>` with the key you saved in Step 2.
+4. Save the file.
+
+#### Step 4: Launch Claude Code
+
+1. Open **PowerShell** or **Command Prompt**.
+2. Navigate to your project folder:
+   ```powershell
+   cd C:\path\to\your\project
+   ```
+3. Run:
+   ```
+   claude
+   ```
+
+The interactive CLI should launch. You're ready to go!
+
+#### Troubleshooting (Windows)
+
+| Problem | Fix |
+|---------|-----|
+| "Invalid API Key" or `/login` error | Double-check `ANTHROPIC_AUTH_TOKEN` in `settings.json` |
+| `claude` command not found | Close and reopen your terminal, or re-run the installer |
+| Connection issues | Ensure you're connected to **VPN** |
+| Need more help | Post in [#claude-code-development](https://godaddy.enterprise.slack.com/archives/C08SL5SGRL1) Slack channel |
+
 ---
 
 ## Connecting Integrations
